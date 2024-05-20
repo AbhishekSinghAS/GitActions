@@ -26,7 +26,7 @@ jobs:
     - name: Download Docker installer
       run: Invoke-WebRequest -Uri 'https://download.docker.com/win/static/stable/x86_64/docker-17.06.0-ce.zip' -OutFile 'docker-17.06.0-ce.zip'
     - name: Extract Docker Desktop installer
-      run: Expand-Archive -Path 'docker-desktop.zip' -DestinationPath './'
+      run: Expand-Archive -Path 'docker-17.06.0-ce.zip' -DestinationPath './'
     - name: Install Docker Desktop
       run: Start-Process -FilePath './Docker Desktop Installer.exe' -ArgumentList '/quiet /norestart' -Wait -ErrorAction Stop
     - name: Login to Docker Hub (optional)
