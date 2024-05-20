@@ -1,0 +1,9 @@
+C:\Users\abhisheksingh26\source\repos\CalcLibrary\bin\Debug\CalcLibrary.dll
+C:\Users\abhisheksingh26\source\repos\CalcLibrary\bin\Debug\CalcLibrary.pdb
+C:\Users\abhisheksingh26\source\repos\CalcLibrary\bin\Debug\Newtonsoft.Json.dll
+C:\Users\abhisheksingh26\source\repos\CalcLibrary\bin\Debug\Newtonsoft.Json.xml
+C:\Users\abhisheksingh26\source\repos\CalcLibrary\obj\Debug\CalcLibrary.csproj.AssemblyReference.cache
+C:\Users\abhisheksingh26\source\repos\CalcLibrary\obj\Debug\CalcLibrary.csproj.CoreCompileInputs.cache
+C:\Users\abhisheksingh26\source\repos\CalcLibrary\obj\Debug\CalcLibrary.csproj.CopyComplete
+C:\Users\abhisheksingh26\source\repos\CalcLibrary\obj\Debug\CalcLibrary.dll
+C:\Users\abhisheksingh26\source\repos\CalcLibrary\obj\Debug\CalcLibrary.pdb

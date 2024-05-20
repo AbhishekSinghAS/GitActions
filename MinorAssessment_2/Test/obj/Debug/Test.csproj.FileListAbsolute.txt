@@ -1,0 +1,16 @@
+C:\Users\abhisheksingh26\source\repos\Test\obj\Debug\Test.csproj.AssemblyReference.cache
+C:\Users\abhisheksingh26\source\repos\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\Users\abhisheksingh26\source\repos\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\abhisheksingh26\source\repos\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\abhisheksingh26\source\repos\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\abhisheksingh26\source\repos\Test\bin\Debug\Test.dll
+C:\Users\abhisheksingh26\source\repos\Test\bin\Debug\Test.pdb
+C:\Users\abhisheksingh26\source\repos\Test\bin\Debug\CalcLibrary.dll
+C:\Users\abhisheksingh26\source\repos\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\abhisheksingh26\source\repos\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\abhisheksingh26\source\repos\Test\bin\Debug\CalcLibrary.pdb
+C:\Users\abhisheksingh26\source\repos\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\abhisheksingh26\source\repos\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\abhisheksingh26\source\repos\Test\obj\Debug\Test.csproj.CopyComplete
+C:\Users\abhisheksingh26\source\repos\Test\obj\Debug\Test.dll
+C:\Users\abhisheksingh26\source\repos\Test\obj\Debug\Test.pdb

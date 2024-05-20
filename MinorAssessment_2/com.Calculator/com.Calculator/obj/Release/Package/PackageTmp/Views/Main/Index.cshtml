@@ -1,0 +1,43 @@
+﻿@model com.Calculator.Models.calculate
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<html>
+<head>
+    
+</head>
+<body>
+    <h2> Calculator </h2>
+
+    <div class="form">
+        @using (Html.BeginForm("/Index", "Main", FormMethod.Post))
+        {
+            <div class="form">
+                <label for="num1">First Number</label><br />
+                <input type="text" class="form" id="num1" name="num1" value="@Model.num1" />
+            </div>
+
+            <div class="form">
+                <label for="num2">Second NUmber</label><br />
+                <input type="text" class="form" id="num2" name="num2" value="@Model.num2" />
+            </div>
+
+            <div class="form">
+                <label for="total">Result</label><br />
+                <input type="text" class="form" id="total" name="total" value="@Model.total" />
+            </div>
+            <br /><br />
+            <button type="submit" class="btn btn-info" id="add" value="add" name="calculate">+</button>
+            <button type="submit" class="btn btn-danger" id="diff" value="diff" name="calculate">-</button>
+            <button type="submit" class="btn btn-warning" id="mul" value="mul" name="calculate">X</button>
+            <button type="submit" class="btn btn-default" id="div" value="div" name="calculte">÷</button>
+
+        }
+
+    </div>
+</body>
+</html>
+
+

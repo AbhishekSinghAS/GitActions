@@ -1,0 +1,98 @@
+pipeline {
+    agent any
+
+    environment {
+        PATH ="/usr/share/maven:$PATH"
+    }
+
+    stages {
+        
+        stage("Build the code"){
+            steps{
+                sh "mvn -f JavaMVC/pom.xml clean package"
+            }
+            
+        }
+        
+        stage('Results of the code test') {
+            steps {
+                junit"JavaMVC/target/surefire-reports/*.xml"
+            }
+            
+        }
+        
+        
+        stage('SonarQube analysis') {
+        steps{
+        withSonarQubeEnv('SonarQube1') { 
+        sh "mvn -f JavaMVC/pom.xml sonar:sonar -Dsonar.projectKey=pipeline_Assessment_5 -Dsonar.projectName=pipeline_Assessment_5"
+                }
+            }
+        }
+       
+        stage ('Server') {
+            steps {
+              script { 
+                 def server = Artifactory.server 'Artifactory'
+                 def uploadSpec = """{
+                    "files": [{
+                       "pattern": "*.war",
+                       "target": "assignment_5/"
+                    }]
+                 }"""
+
+                 server.upload(uploadSpec) 
+               }
+            }
+        }
+        
+        stage('create image for docker') {
+            steps{
+                sh 'docker build -t abhisheksingh26/minor-assessment  JavaMVC/ '
+            }
+        }
+        
+        stage('push image to docker hub'){
+            steps{
+                withCredentials([string(credentialsId: 'dockerhubpassword', variable: 'dockerhubpass')]) {
+                sh 'docker login -u abhisheksingh26 -p ${dockerhubpass}'
+}
+                sh 'docker push abhisheksingh26/minor-assessment' 
+            }
+        }
+        stage('Run the container'){
+            steps{
+                script{
+                def docker_container = sh(returnStdout: true, script: 'docker ps -a -f name="MavenAssessment2" -q')
+                if(docker_container)
+                     {
+                sh "docker stop ${docker_container}"
+                sh "docker rm --force ${docker_container}"
+            }
+        }
+            sh 'docker run -d --name MavenAssessment2 -p 8084:8080 abhisheksingh26/minor-assessment'
+            }
+        }
+        
+        stage('Logging into AWS ECR') {
+            steps{
+                script{
+                docker.withRegistry('https://876724398547.dkr.ecr.us-east-2.amazonaws.com','ecr:us-east-2:foraws') {
+                sh 'docker tag abhishek-fresher-training-devops:latest 876724398547.dkr.ecr.us-east-2.amazonaws.com/abhishek-fresher-training-devops:latest'
+                sh 'docker push 876724398547.dkr.ecr.us-east-2.amazonaws.com/abhishek-fresher-training-devops:latest'
+                }
+                }
+            }
+        }
+        
+        stage('Pulling and Running the image from ECR to EC2 instance'){
+            steps{
+               sh "ssh -i /var/lib/jenkins/abhisheksingh-devops-freshertraining.pem  ec2-user@18.116.98.226 'aws ecr get-login-password --region us-east-2 |sudo docker login --username AWS --password-stdin 876724398547.dkr.ecr.us-east-2.amazonaws.com' "
+               sh "ssh -i /var/lib/jenkins/abhisheksingh-devops-freshertraining.pem  ec2-user@18.116.98.226 'sudo docker run --name abhishek_ec2dep -d -p 80:8080 876724398547.dkr.ecr.us-east-2.amazonaws.com/abhishek-fresher-training-devops:latest '"
+                
+            }
+        }
+        
+        
+    }
+}
