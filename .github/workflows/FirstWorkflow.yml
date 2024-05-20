@@ -8,7 +8,7 @@ on:
 
 jobs:
   Just-print:
-    runs-on: IN-230D5S3
+    runs-on: Windows
     steps:
       - name: print something
         run: echo Hey! My name is Abhishek Singh
