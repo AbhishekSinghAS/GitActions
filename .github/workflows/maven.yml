@@ -24,7 +24,7 @@ jobs:
       run: mvn -B install --file JavaMVC/pom.xml
 
     - name: Download Docker installer
-      run: Invoke-WebRequest -Uri 'https://download.docker.com/win/stable/InstallDocker.exe' -OutFile 'InstallDocker.exe'
+      run: Invoke-WebRequest -Uri 'https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?_gl=1*zd8red*_ga*NTU2MjUxMjg5LjE3MTYyMzMyNDk.*_ga_XJWPQMJYHQ*MTcxNjIzMzI0OC4xLjEuMTcxNjIzMzI1OC41MC4wLjA.' -OutFile 'Docker Desktop Installer.exe'
     - name: Install Docker Desktop
       run: Start-Process -FilePath 'InstallDocker.exe' -ArgumentList '/quiet /norestart' -Wait -ErrorAction Stop
     - name: Login to Docker Hub (optional)
