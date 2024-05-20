@@ -24,9 +24,11 @@ jobs:
       run: mvn -B install --file JavaMVC/pom.xml
 
     - name: Download Docker installer
-      run: Invoke-WebRequest -Uri 'https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?_gl=1*8u81j9*_ga*NTU2MjUxMjg5LjE3MTYyMzMyNDk.*_ga_XJWPQMJYHQ*MTcxNjIzMzI0OC4xLjEuMTcxNjIzNDQxOC42MC4wLjA.'
+      run: Invoke-WebRequest -Uri 'https://download.docker.com/win/static/stable/x86_64/docker-17.06.0-ce.zip' -OutFile 'docker-17.06.0-ce.zip'
+    - name: Extract Docker Desktop installer
+      run: Expand-Archive -Path 'docker-desktop.zip' -DestinationPath './'
     - name: Install Docker Desktop
-      run: Start-Process -FilePath 'InstallDocker.exe' -ArgumentList '/quiet /norestart' -Wait -ErrorAction Stop
+      run: Start-Process -FilePath './Docker Desktop Installer.exe' -ArgumentList '/quiet /norestart' -Wait -ErrorAction Stop
     - name: Login to Docker Hub (optional)
       uses: docker/login-action@v2
       with:
