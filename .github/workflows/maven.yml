@@ -45,12 +45,12 @@ jobs:
     # - name: Build Docker image
     #   run: docker build . --file JavaMVC/Dockerfile --tag abhisheksingh26/GitActionTryout
 
-    - name: Build and push
-      uses: docker/build-push-actions@v4
-      with:
-        push: false
-        file: JavaMVC/Dockerfile
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
+    # - name: Build and push
+    #   uses: docker/build-push-actions@v4
+    #   with:
+    #     push: false
+    #     file: JavaMVC/Dockerfile
+    #     tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
         
     # - name: Run the docker image
     #   run: docker run -d --name gitactions -p 8084:8080 abhisheksingh26/GitActionTryout
